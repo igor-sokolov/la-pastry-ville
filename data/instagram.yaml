@@ -1,0 +1,6 @@
+# Put post URLs here to auto-embed. Example:
+# posts:
+#   - "https://www.instagram.com/p/XXXXXXXXX/"
+#   - "https://www.instagram.com/p/YYYYYYYYY/"
+profile: "https://www.instagram.com/lapastryville/"
+posts: []

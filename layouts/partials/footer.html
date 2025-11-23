@@ -1,0 +1,21 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-columns">
+      <div>
+        <h4>Contact</h4>
+        {{ if site.Params.email }}<p><a href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a></p>{{ end }}
+        {{ if site.Params.whatsapp }}<p><a href="{{ site.Params.whatsapp }}" target="_blank" rel="noopener">WhatsApp</a></p>{{ end }}
+        <p><a href="{{ site.Params.instagram }}" target="_blank" rel="noopener">@lapastryville</a></p>
+      </div>
+      <div>
+        <h4>Notes</h4>
+        <p>{{ site.Params.pickup_note }}</p>
+        <p><small>{{ site.Params.allergen_note }}</small></p>
+      </div>
+    </div>
+    <p class="tiny">© {{ now.Year }} {{ site.Title }} • Baked with love.</p>
+  </div>
+  <script async src="https://www.instagram.com/embed.js"></script>
+</footer>
+</body>
+</html>

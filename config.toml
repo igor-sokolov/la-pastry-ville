@@ -1,0 +1,22 @@
+baseURL = "https://igor-sokolov.github.io/la-pastry-ville/"
+languageCode = "en-us"
+title = "La Pastry Ville"
+enableRobotsTXT = true
+
+# stop Hugo from generating taxonomy pages (and thus needing taxonomy layouts)
+disableKinds = ["taxonomy", "term"]
+
+[pagination]
+  pagerSize = 9
+
+[params]
+  tagline = "Fresh croissants & flaky puff pastry — baked to order."
+  instagram = "https://www.instagram.com/lapastryville/"
+  email = "orders@example.com"            # change to your real address
+  whatsapp = ""                           # optional: e.g. "https://wa.me/15551234567"
+  preorder_url = ""                       # optional: e.g. Google Form link
+  preorder_note = "Preorder 24–48h in advance. Small batches, baked at dawn."
+  pickup_note = "Home bakery. Pickup window shared on confirmation."
+  allergen_note = "Contains gluten and dairy. Made in a home kitchen."
+  brand_color = "#8B1A1A"
+  accent_color = "#DC143C"

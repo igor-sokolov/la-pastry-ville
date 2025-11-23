@@ -1,0 +1,61 @@
+{{ partial "head.html" . }}
+<header class="hero">
+  <div class="container hero-flex">
+    <img class="logo" src="{{ "images/logo.jpg" | relURL }}" alt="{{ .Site.Title }} logo"/>
+    <div class="hero-text">
+      <h1>{{ .Site.Title }}</h1>
+      <p class="tagline">{{ .Site.Params.tagline }}</p>
+      <div class="cta-row">
+        {{ if .Site.Params.preorder_url }}
+          <a class="btn primary" href="{{ .Site.Params.preorder_url }}" target="_blank" rel="noopener">Preorder</a>
+        {{ end }}
+        {{ if .Site.Params.whatsapp }}
+          <a class="btn" href="{{ .Site.Params.whatsapp }}" target="_blank" rel="noopener">Message us</a>
+        {{ end }}
+        <a class="btn" href="{{ .Site.Params.instagram }}" target="_blank" rel="noopener">Instagram</a>
+        {{ if .Site.Params.email }}
+          <a class="btn" href="mailto:{{ .Site.Params.email }}">Email</a>
+        {{ end }}
+      </div>
+      <p class="preorder-note">{{ .Site.Params.preorder_note }}</p>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="menu" class="section">
+    <div class="container">
+      <h2>Menu</h2>
+      {{ range .Site.Data.products.categories }}
+        <h3>{{ .name }}</h3>
+        <div class="grid">
+          {{ range .items }}
+          <div class="card">
+            <h4>{{ .name }}</h4>
+            {{ if .desc }}<p class="muted">{{ .desc }}</p>{{ end }}
+            {{ if .price }}<p class="price">{{ .price }}</p>{{ end }}
+          </div>
+          {{ end }}
+        </div>
+      {{ end }}
+      <p class="note">Custom orders welcome. Seasonal items rotate.</p>
+    </div>
+  </section>
+
+  <section id="instagram" class="section alt">
+    <div class="container">
+      <h2>From Instagram</h2>
+      <p>Follow <a href="{{ .Site.Params.instagram }}" target="_blank" rel="noopener">@lapastryville</a> for fresh drops.</p>
+      <div class="ig-grid">
+        {{ range .Site.Data.instagram.posts }}
+          <blockquote class="instagram-media" data-instgrm-permalink="{{ . }}?utm_source=ig_embed&utm_campaign=loading" data-instgrm-version="14"></blockquote>
+        {{ end }}
+      </div>
+      {{ if not (gt (len .Site.Data.instagram.posts) 0) }}
+      <p class="muted tiny">Tip: put Instagram post links into <code>data/instagram.yaml</code> to auto-embed them here.</p>
+      {{ end }}
+    </div>
+  </section>
+</main>
+
+{{ partial "footer.html" . }}
