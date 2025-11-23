@@ -1,0 +1,35 @@
+{{ $title := site.Title }}
+{{ $desc := site.Params.tagline }}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes"/>
+  <title>{{ $title }}</title>
+  <meta name="description" content="{{ $desc }}"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ "css/site.css" | relURL }}"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="{{ $title }}"/>
+  <meta property="og:description" content="{{ $desc }}"/>
+  <meta property="og:image" content="{{ "images/logo.jpg" | absURL }}"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="theme-color" content="{{ site.Params.brand_color }}"/>
+  <link rel="icon" href="{{ "images/logo.jpg" | relURL }}" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Bakery",
+    "name": "{{ $title }}",
+    "image": "{{ "images/logo.jpg" | absURL }}",
+    "url": "{{ site.BaseURL }}",
+    "servesCuisine": ["French", "Bakery", "Pastry"],
+    "sameAs": ["{{ site.Params.instagram }}"],
+    "priceRange": "$$",
+    "areaServed": "Local pickup"
+  }
+  </script>
+</head>
+<body>

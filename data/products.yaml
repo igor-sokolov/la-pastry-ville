@@ -1,0 +1,28 @@
+categories:
+  - name: Croissants
+    items:
+      - name: Butter Croissant
+        desc: Classic layers, flaky & golden.
+        price: from $4
+      - name: Pain au Chocolat
+        desc: Two batons of dark chocolate.
+        price: from $5
+      - name: Almond Croissant
+        desc: Filled with frangipane, topped with toasted almonds.
+        price: from $5.5
+  - name: Puff Pastry Classics
+    items:
+      - name: Kouign-amann
+        desc: Caramelized shells with a tender center.
+        price: from $5.5
+      - name: Palmiers
+        desc: Crisp sugared “elephant ears”.
+        price: per 4 — $8
+      - name: Savory Cheese Straws
+        desc: Aged cheese, buttery layers, pepper.
+        price: per 6 — $10
+  - name: Seasonal / Specials
+    items:
+      - name: Weekend Rotation
+        desc: Limited small-batch pastries announced on Instagram.
+        price: market
