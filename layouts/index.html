@@ -1,74 +1,67 @@
 {{ partial "head.html" . }}
-<section class="hero-image">
-  <div class="hero-image-container">
-    <img class="hero-img" src="{{ "images/hero.png" | relURL }}" alt="{{ .Site.Title }} hero image"/>
-  </div>
-</section>
-<header class="hero">
-  <div class="container hero-flex">
-    <img class="logo" src="{{ "images/logo.jpg" | relURL }}" alt="{{ .Site.Title }} logo"/>
-    <div class="hero-text">
-      <h1>{{ .Site.Title }}</h1>
-      <p class="tagline">{{ .Site.Params.tagline }}</p>
-      <div class="cta-row">
-        {{ if .Site.Params.preorder_url }}
-          <a class="btn primary" href="{{ .Site.Params.preorder_url }}" target="_blank" rel="noopener">Preorder</a>
-        {{ end }}
-        {{ if .Site.Params.whatsapp }}
-          <a class="btn" href="{{ .Site.Params.whatsapp }}" target="_blank" rel="noopener">Message us</a>
-        {{ end }}
-        <a class="btn" href="{{ .Site.Params.instagram }}" target="_blank" rel="noopener">Instagram</a>
-        {{ if .Site.Params.email }}
-          <a class="btn" href="mailto:{{ .Site.Params.email }}">Email</a>
-        {{ end }}
-      </div>
-      <p class="preorder-note">{{ .Site.Params.preorder_note }}</p>
-    </div>
-  </div>
-</header>
+{{ partial "header.html" . }}
 
 <main>
-  <section id="menu" class="section">
+  <!-- Hero Section -->
+  <section id="home" class="hero">
     <div class="container">
-      <h2>Menu</h2>
-      {{ range .Site.Data.products.categories }}
-        <h3>{{ .name }}</h3>
-        <div class="grid">
-          {{ range .items }}
-          <div class="card">
-            <h4>{{ .name }}</h4>
-            {{ if .desc }}<p class="muted">{{ .desc }}</p>{{ end }}
-            {{ if .price }}<p class="price">{{ .price }}</p>{{ end }}
-          </div>
-          {{ end }}
-        </div>
-      {{ end }}
-      <p class="note">Custom orders welcome. Seasonal items rotate.</p>
+      <div class="hero-content">
+        <img src="{{ "images/logo-main.png" | relURL }}" alt="{{ .Site.Title }}" class="hero-logo" />
+        <p class="hero-tagline">{{ .Site.Params.tagline }}</p>
+        <p class="hero-description">
+          Experience the authentic taste of French pastry crafted with passion and precision. 
+          From our dark kitchen to your doorstep, we bring you handmade delights baked fresh every day.
+        </p>
+        <a href="{{ .Site.Params.instagram }}" target="_blank" rel="noopener" class="hero-cta">
+          <svg class="hero-cta-icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+          Follow us on Instagram for daily treats & specials
+        </a>
+      </div>
     </div>
   </section>
 
-  <section id="instagram" class="section alt">
+  <!-- About Section -->
+  {{ partial "about.html" . }}
+
+  <!-- Products Section -->
+  <section id="products" class="section section-cream">
     <div class="container">
-      <h2>From Instagram</h2>
-      <p>Follow <a href="{{ .Site.Params.instagram }}" target="_blank" rel="noopener">@lapastryville</a> for fresh drops.
-      {{ if .Site.Params.instagram_hashtag }}
-        <span class="muted">Showing posts with #{{ .Site.Params.instagram_hashtag }}</span>
-      {{ end }}
-      </p>
-      <div id="instagram-posts" 
-           class="ig-grid"
-           data-username="lapastryville"
-           {{ if .Site.Params.instagram_hashtag }}data-hashtag="{{ .Site.Params.instagram_hashtag }}"{{ end }}
-           data-max-posts="{{ .Site.Params.instagram_max_posts | default 12 }}">
-        {{ range .Site.Data.instagram.posts }}
-          <blockquote class="instagram-media" data-instgrm-permalink="{{ . }}?utm_source=ig_embed&utm_campaign=loading" data-instgrm-version="14"></blockquote>
+      <div class="section-header">
+        <h2>Our Artisan Selection</h2>
+        <p>
+          Discover our range of handcrafted French pastries and baked goods, 
+          each made with love and the finest ingredients.
+        </p>
+      </div>
+
+      <div class="products-grid">
+        {{ range .Site.Data.products.categories }}
+          {{ range .items }}
+          <div class="product-card">
+            {{ if .image }}
+            <img src="{{ .image }}" alt="{{ .name }}" class="product-image" />
+            {{ else }}
+            <div class="product-image" style="background: var(--color-beige); display: flex; align-items: center; justify-content: center; color: var(--color-charcoal); opacity: 0.5;">
+              {{ .name }}
+            </div>
+            {{ end }}
+            <div class="product-content">
+              <h3>{{ .name }}</h3>
+              {{ if .desc }}
+              <p class="product-description">{{ .desc }}</p>
+              {{ end }}
+            </div>
+          </div>
+          {{ end }}
         {{ end }}
       </div>
-      {{ if not (gt (len .Site.Data.instagram.posts) 0) }}
-      <p class="muted tiny">Tip: Run <code>python3 scripts/fetch-instagram.py</code> to auto-fetch posts, or manually add post URLs to <code>data/instagram.yaml</code>.</p>
-      {{ end }}
     </div>
   </section>
+
+  <!-- Contact Section -->
+  {{ partial "contact.html" . }}
 </main>
 
 {{ partial "footer.html" . }}
