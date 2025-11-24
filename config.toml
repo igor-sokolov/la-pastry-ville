@@ -1,6 +1,6 @@
 # Update this with your Netlify site URL after deployment
 # Or set HUGO_BASEURL environment variable in Netlify dashboard
-baseURL = "https://YOUR-SITE-NAME.netlify.app/"
+baseURL = "https://la-pastry-ville.netlify.app/"
 languageCode = "en-us"
 title = "La Pastry Ville"
 enableRobotsTXT = true
