@@ -14,13 +14,7 @@ disableKinds = ["taxonomy", "term"]
 [params]
   tagline = "A Taste of Europe with Local Goodness."
   instagram = "https://www.instagram.com/lapastryville/"
-  instagram_hashtag = ""                   # optional: filter posts by hashtag (e.g., "lapastryville" or "croissant")
   instagram_max_posts = 12                 # maximum number of posts to display
-  email = "orders@example.com"            # change to your real address
-  whatsapp = ""                           # optional: e.g. "https://wa.me/15551234567"
-  preorder_url = ""                       # optional: e.g. Google Form link
-  preorder_note = "Preorder 24–48h in advance. Small batches, baked at dawn."
-  pickup_note = "Home bakery. Pickup window shared on confirmation."
-  allergen_note = "Contains gluten and dairy. Made in a home kitchen."
+  email = "simatova.irina@gmail.com"            # change to your real address
   brand_color = "#8B1A1A"
   accent_color = "#DC143C"

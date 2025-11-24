@@ -15,64 +15,63 @@ hugo server -D
 hugo --minify
 ```
 
-## Customize
+## Website Structure
 
-- **config.toml** → set `email`, `whatsapp`, `preorder_url`, and texts under `[params]`.
-- **data/products.yaml** → edit menu items and descriptions.
-- **static/images/logo*.png** → replace if you ever update the logos.
-- **static/css/site.css** → tweak colors/spacing.
+This is a single-page website with the following sections:
 
-## Deployment — Netlify
+### Main Layout
+- **`layouts/index.html`** — Main page template that assembles all sections
 
-This site is configured for automatic deployment to Netlify on pushes to `main`.
+### Page Sections (in order)
+1. **Hero Section** — Logo, tagline, description, and Instagram CTA button
+2. **About Section** — Mission, vision, values, local sourcing info, and feature cards
+   - Located in: `layouts/partials/about.html`
+3. **Products Section** — Grid of product cards displaying items from `data/products.yaml`
+4. **Contact Section** — Contact information, hours, delivery area, and contact form
+   - Located in: `layouts/partials/contact.html`
 
-### Setup Steps:
+### Partials
+- **`layouts/partials/head.html`** — HTML head with meta tags, stylesheets, favicon
+- **`layouts/partials/header.html`** — Site header with logo and navigation
+- **`layouts/partials/footer.html`** — Footer with links, social media, copyright
 
-1. **Create Netlify Account** (if needed)
-   - Go to https://app.netlify.com
-   - Sign up/login with GitHub
+### Data Files
+- **`data/products.yaml`** — Product categories and items (croissants, danishes, etc.)
+- **`data/instagram.yaml`** — Instagram profile URL and post URLs (currently unused)
 
-2. **Connect Repository**
-   - Click "Add new site" → "Import an existing project"
-   - Select GitHub → Authorize Netlify
-   - Choose `la-pastry-ville` repository
+### Static Assets
+- **`static/css/site.css`** — All site styles (colors, typography, responsive design)
+- **`static/images/`** — Logo files and other images
+  - `logo-main.png` — Hero section logo
+  - `logo-header.png` — Header logo
+  - `logo-footer.png` — Footer logo
+  - `favicon.png` / `favicon.jpg` — Site favicon
 
-3. **Configure Build Settings**
-   - Netlify will auto-detect settings from `netlify.toml`:
-     - Build command: `hugo --minify`
-     - Publish directory: `public`
-     - Hugo version: `0.128.2` (extended)
-   - Verify these settings match in the Netlify dashboard
+### Configuration
+- **`config.toml`** — Site configuration, base URL, and parameters
+  - `[params]` section contains: tagline, Instagram URL, email, brand colors
 
-4. **Update baseURL**
-   - After first deployment, Netlify will provide your site URL (e.g., `https://your-site-name.netlify.app`)
-   - Update `baseURL` in `config.toml` with your actual Netlify URL
-   - Or set `HUGO_BASEURL` environment variable in Netlify dashboard (Site settings → Environment variables)
-   - Push the change to trigger a new deployment
+## Customization
 
-5. **Deploy**
-   - Click "Deploy site" in Netlify dashboard
-   - Netlify will build and deploy automatically
-   - Future pushes to `main` will trigger automatic deployments
+### Content
+- **`config.toml`** → Update `title`, `tagline`, `email`, `instagram` URL under `[params]`
+- **`data/products.yaml`** → Edit product categories, items, descriptions, prices
+- **`layouts/partials/about.html`** → Modify mission, vision, values, and sourcing text
+- **`layouts/partials/contact.html`** → Update operating hours and delivery area
 
-6. **Custom Domain** (optional)
-   - In Netlify dashboard: Site settings → Domain management
-   - Add your custom domain if desired
+### Visual
+- **`static/css/site.css`** → Customize colors (CSS variables at top), spacing, typography
+- **`static/images/logo*.png`** → Replace logo files (main, header, footer)
+- **`static/images/favicon.*`** → Update favicon files
 
-## Deployment — GitHub Pages
-
-This repo includes a workflow `.github/workflows/hugo.yml` that builds the site and deploys to GitHub Pages on pushes to `main`.
-
-Steps:
-1. Push this project to `github.com/igor-sokolov/la-pastry-ville`.
-2. In the repo's **Settings → Pages**, set the source to **GitHub Actions**.
-3. Push to `main`. The workflow will publish from `public/` to Pages.
-
-If your Pages URL differs, update `baseURL` in `config.toml` accordingly.
+### Layout
+- **`layouts/index.html`** → Reorder or add/remove sections
+- **`layouts/partials/*.html`** → Modify individual section templates
 
 ## Notes
 
-- No external theme; layouts are inside `layouts/`. No JS build step.
-- Fully responsive design for desktop, tablet, and mobile devices.
-- Accessibility: semantic headings, high-contrast buttons, large tap targets.
-- Instagram links are simple external links (no feed integration).
+- No external theme; all layouts are custom in `layouts/`
+- No JavaScript build step; pure HTML/CSS
+- Fully responsive design for desktop, tablet, and mobile
+- Accessibility: semantic HTML, high-contrast buttons, large tap targets
+- Instagram links are external links (no feed integration)
