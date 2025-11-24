@@ -12,7 +12,7 @@ disableKinds = ["taxonomy", "term"]
   pagerSize = 9
 
 [params]
-  tagline = "Fresh croissants & flaky puff pastry — baked to order."
+  tagline = "A Taste of Europe with Local Goodness."
   instagram = "https://www.instagram.com/lapastryville/"
   instagram_hashtag = ""                   # optional: filter posts by hashtag (e.g., "lapastryville" or "croissant")
   instagram_max_posts = 12                 # maximum number of posts to display
