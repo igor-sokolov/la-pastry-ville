@@ -564,6 +564,13 @@ h4 {
   margin: 0 auto;
 }
 
+/* Desktop - limit to 3 columns */
+@media (min-width: 1025px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 .product-card {
   background: var(--alt);
   border-radius: var(--radius);

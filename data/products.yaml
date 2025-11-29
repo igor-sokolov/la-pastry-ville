@@ -15,17 +15,21 @@ categories:
         desc: Filled with frangipane, topped with toasted almonds.
         price: from $5.5
         weight: 4.5 oz
+        image: /images/almond_croissant.png
   - name: Danishes
     items:
       - name: Custard Danish
         desc: Classic custard filling with vanilla and cinnamon.
         price: from $5
         weight: 4 oz
+        image: /images/custard_danish.png
       - name: Blueberry Crème Danish
         desc: Blueberry filling with vanilla crème.
         price: from $5
         weight: 4 oz
+        image: /images/blueberry_creme_danish.png
       - name: Custard and Raisin Danish
         desc: Custard filling with plump raisins.
         price: from $5
         weight: 3.5 oz
+        image: /images/custard_and_raisin_danish.png
