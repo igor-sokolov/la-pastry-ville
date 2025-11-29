@@ -165,75 +165,199 @@ h4 {
 
 /* Hero Section */
 .hero {
-  padding: 80px 0;
-  background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-beige) 100%);
   position: relative;
-}
-
-.hero::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 64px;
-  background: linear-gradient(to top, var(--alt), transparent);
-}
-
-.hero-content {
-  max-width: 1024px;
-  margin: 0 auto;
-  text-align: center;
+  min-height: 500px;
+  background-image: url('/images/hero.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 100%;
+  overflow: hidden;
 }
 
 .hero-logo {
-  width: 256px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 10;
+  width: 100px;
   height: auto;
   max-width: 100%;
-  margin: 0 auto 2rem;
-  display: block;
+  background: var(--color-cream);
+  padding: 12px;
+  border-radius: var(--radius-small);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-@media (min-width: 768px) {
-  .hero-logo {
-    width: 384px;
-  }
+.hero-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: 500px;
+  width: 100%;
+}
+
+.hero-text-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.hero-text-content {
+  max-width: 100%;
+  text-align: center;
 }
 
 .hero-tagline {
-  font-size: 1.25rem;
-  color: var(--color-burgundy);
+  font-size: 1.5rem;
+  color: #FFFFFF;
   margin: 0 0 1.5rem;
   font-weight: 400;
   line-height: 1.5;
   font-style: italic;
 }
 
-.hero-description {
-  color: var(--color-charcoal);
-  max-width: 672px;
-  margin: 0 auto 2.5rem;
-  opacity: 0.9;
+.hero-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+  text-align: center;
+  display: inline-block;
+}
+
+.hero-bullets li {
+  color: #FFFFFF;
   font-size: 1.125rem;
-  line-height: 1.7;
+  line-height: 1.8;
+  margin-bottom: 0.75rem;
+  padding-left: 2.5rem;
+  position: relative;
+}
+
+.hero-bullets li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 0.35rem;
+  width: 18px;
+  height: 18px;
+  background: var(--color-burgundy);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: bold;
+  line-height: 1;
 }
 
 .hero-cta {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  color: var(--color-burgundy);
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(4px);
+  color: #FFFFFF;
+  background: var(--color-burgundy);
   padding: 0.75rem 1.5rem;
   border-radius: 9999px;
   text-decoration: none;
   font-weight: 500;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.hero-cta:hover {
+  background: var(--color-burgundy-dark);
+  transform: translateY(-2px);
 }
 
 .hero-cta-icon {
   width: 20px;
   height: 20px;
+}
+
+.hero-image-area {
+  display: none;
+}
+
+/* Tablet and up - begin split layout */
+@media (min-width: 768px) {
+  .hero {
+    min-height: 600px;
+  }
+
+  .hero-logo {
+    width: 120px;
+    top: 24px;
+    left: 24px;
+    padding: 14px;
+  }
+
+  .hero-container {
+    grid-template-columns: 45% 55%;
+    min-height: 600px;
+  }
+
+  .hero-text-wrapper {
+    background: rgba(58, 58, 58, 0.6);
+    padding: 4rem 3rem;
+    justify-content: flex-start;
+  }
+
+  .hero-text-content {
+    text-align: left;
+    max-width: 100%;
+  }
+
+  .hero-bullets {
+    text-align: left;
+  }
+
+  .hero-tagline {
+    font-size: 1.75rem;
+  }
+
+  .hero-image-area {
+    display: block;
+    /* Background image is on .hero, this area just shows it */
+  }
+}
+
+/* Desktop - full split layout */
+@media (min-width: 1025px) {
+  .hero {
+    min-height: 700px;
+  }
+
+  .hero-logo {
+    width: 150px;
+    top: 32px;
+    left: 32px;
+    padding: 16px;
+  }
+
+  .hero-container {
+    grid-template-columns: 40% 60%;
+    min-height: 700px;
+  }
+
+  .hero-text-wrapper {
+    padding: 4rem;
+  }
+
+  .hero-tagline {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero-bullets {
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-bullets li {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
 }
 
 .cta-row {
